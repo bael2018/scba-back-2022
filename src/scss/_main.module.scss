@@ -1,0 +1,21 @@
+@import './variables.module.scss';
+
+.main{
+    position: absolute;
+    width: 80%;
+    right: 0;
+    transition: 1s;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 25px;
+
+    &_active{
+        width: 100%;
+    }
+
+    &_wrapper{
+        background: $appSecondaryBgColor;
+        border-radius: 15px;
+        height: 100%;
+    }
+}

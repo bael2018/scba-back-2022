@@ -1,0 +1,17 @@
+@import './variables.module.scss';
+
+.sidebar{
+    position: fixed;
+    width: 20%;
+    background: $appSecondaryBgColor;
+    height: 100vh;
+    transition: 1s;
+    left: 0%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+
+    &_active{
+        left: -20%;
+    }
+}

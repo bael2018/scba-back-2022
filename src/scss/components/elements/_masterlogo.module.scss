@@ -1,0 +1,29 @@
+@import '../../variables.module.scss';
+
+.logo{
+    background-color: $appColor;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 30px;
+    padding-right: 25px;
+    position: relative;
+
+    span{
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    button{
+        cursor: pointer;
+        background: none;
+        color: white;
+        font-size: 20px;
+        border: none;
+    }
+}
