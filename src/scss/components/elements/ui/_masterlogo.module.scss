@@ -1,4 +1,4 @@
-@import '../../variables.module.scss';
+@import '../../../variables.module.scss';
 
 .logo{
     background-color: $appColor;
@@ -23,7 +23,7 @@
         cursor: pointer;
         background: none;
         color: white;
-        font-size: 20px;
+        font-size: 23px;
         border: none;
     }
 }

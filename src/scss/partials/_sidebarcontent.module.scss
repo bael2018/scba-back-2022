@@ -1,15 +1,23 @@
-
 @import '../variables.module.scss';
 
 .content{
-    height: 100%;
+    height: 100%;   
 
     &_wrapper{
         width: 100%;
-        height: 70%;
+        height: 93%;
         padding: 20px;
+        overflow-y: scroll;
         box-sizing: border-box;
-        border-bottom: 1px solid red;
+
+        &::-webkit-scrollbar{
+            background: $appSecondaryBgColor;
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb{
+            background: $appColor;
+        }
         
         ul{
             margin: 0;

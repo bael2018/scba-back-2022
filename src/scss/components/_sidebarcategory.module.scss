@@ -1,0 +1,18 @@
+
+.category{
+    color: white;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    transition: .5s;
+    height: 0px;
+
+    &_active{
+        height: 300px;
+        margin-bottom: 15px;
+    }
+
+    &::-webkit-scrollbar{
+        width: 4px;
+        background: none;
+    }
+}

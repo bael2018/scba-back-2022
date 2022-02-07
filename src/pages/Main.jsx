@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { Error } from '../../pages/Error';
-import { Product } from '../../pages/Product';
-import { Settings } from '../../pages/Settings';
-import cls from '../../scss/_main.module.scss';
-import { MainLayout } from '../layouts/MainLayout';
+import { Custom } from '../pages/Custom';
+import { Error } from '../pages/Error';
+import { Product } from '../pages/Product';
+import cls from '../scss/_main.module.scss';
+import { MainLayout } from '../components/layouts/MainLayout';
 
 const Main = () => {
     const { sideBarView } = useSelector(state => state.app)
@@ -14,8 +14,8 @@ const Main = () => {
             <div className={cls.main_wrapper}>
                 <Routes>
                     <Route path='/' element={<MainLayout/>}>
-                        <Route index element={<Settings/>}/>
-                        <Route path='product/:id' element={<Product/>}/>
+                        <Route index element={<Custom/>}/>
+                        <Route path=':id' element={<Product/>}/>
                         <Route path='*' element={<Error/>}/>
                     </Route>
                 </Routes>

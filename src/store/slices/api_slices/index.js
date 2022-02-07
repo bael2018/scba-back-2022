@@ -1,11 +1,13 @@
-
 export const DOT_JSON = '.json'
-export const PRODUCT = 'product'
+
+export const rootApiNamesSlice = {
+    PRODUCT_API: 'PRODUCT_API'
+}
 
 export const rootStatusNames = {
     RESOLVED: 'resolved',
     REJECTED: 'rejected',
-    LOADING: 'loading',
+    LOADING: 'loading'
 }
 
 export const setRejected = (state , action) => {

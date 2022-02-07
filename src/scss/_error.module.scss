@@ -1,0 +1,25 @@
+@import './variables.module.scss';
+
+.error{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3{
+        color: white;
+        margin: 0;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+        background: $appColor;
+        border-radius: 10px;
+        font-weight: 500;
+        padding: 9px 18px;
+    }
+}

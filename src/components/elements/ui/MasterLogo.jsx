@@ -1,4 +1,4 @@
-import cls from '../../../scss/components/elements/_masterlogo.module.scss';
+import cls from '../../../scss/components/elements/ui/_masterlogo.module.scss';
 import { FaChevronLeft } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { sideBarAppear } from '../../../store/slices/app_slices/appSlice';

@@ -1,0 +1,35 @@
+@import './../../variables.module.scss';
+
+.settings{
+    &__container{
+        display: flex;
+        justify-content: space-between;
+
+        input{
+            width: 90%;
+        }
+    }
+    
+    &__input{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 15px;
+        font-weight: bold;
+        color: white;
+        outline: none;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background: $appBgColor;
+        height: 45px;
+    }
+
+    &__middle{
+        width: 35%;
+        border-left: 1px solid $appThirdBgColor;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 0 20px;
+        border-right: 1px solid $appThirdBgColor;
+    }
+}

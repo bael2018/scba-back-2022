@@ -1,9 +1,9 @@
-import { catchResponseError, DOT_JSON, PRODUCT, rootStatusNames, setRejected } from "./apiHelper";
+import { catchResponseError, DOT_JSON, rootApiNamesSlice, rootStatusNames, setRejected } from ".";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getProductFromApi = createAsyncThunk(
-    `${PRODUCT}/getProductFromApi`,
+    `${rootApiNamesSlice.PRODUCT_API}/getProductFromApi`,
     async (_ , { rejectWithValue }) => {
         try {
            const response = await axios.get(`${process.env.REACT_APP_BASE_API}users${DOT_JSON}`) 
@@ -21,8 +21,8 @@ const initState = {
     error: null
 }
 
-const productSlice = createSlice({
-    name: PRODUCT,
+const getProductSlice = createSlice({
+    name: rootApiNamesSlice.PRODUCT_API,
     initialState: initState,
     extraReducers: {
         [getProductFromApi.pending]: state => {
@@ -36,4 +36,4 @@ const productSlice = createSlice({
     }
 })
 
-export default productSlice.reducer
+export default getProductSlice.reducer

@@ -1,0 +1,64 @@
+@import '../variables.module.scss';
+
+.dropdown{
+    width: 200px;
+    background: #292929;
+    border-radius: 10px;    
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+    
+    &__header{
+        cursor: pointer;
+        color: white;
+        font-weight: 500;
+        padding: 12px 0;
+        font-size: 22px;
+    }
+
+    &__body{
+        height: 0px;
+
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            
+            li{
+                padding: 9px 0;
+                cursor: pointer;
+                color: white;
+                font-size: 18px;
+                transition: .3s;
+                border-top: 1px solid $appSecondaryBgColor;
+                font-weight: 300;
+
+                &:hover{
+                    background: $appThirdBgColor !important;
+                }
+            }
+        }
+
+        &_active{
+            height: 120px;
+        }
+
+        &_scroll{
+            height: 120px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar{
+                width: 3px;
+            }
+            
+            &::-webkit-scrollbar-thumb{
+                border-radius: 10px;
+                background: $appColor;
+            }
+        }
+    }
+}
+
+.activeItem{
+    background: $appThirdBgColor;
+}
