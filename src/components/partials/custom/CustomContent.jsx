@@ -1,9 +1,9 @@
 import { useEffect , useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useInput } from '../../../hooks/useInput'
 import cls from '../../../scss/partials/custom/_customcontent.module.scss'
 import { setProductImages } from '../../../store/slices/app_slices/productSlice'
-import { InputChecker } from '../../elements/InputChecker'
+import { InputChecker } from '../InputChecker'
 
 const CustomContent = () => {
     const [secondPic , setSecondPic] = useState(false)

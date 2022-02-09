@@ -1,9 +1,9 @@
+import { setProductInfo } from "../../../store/slices/app_slices/productSlice"
+import cls from '../../../scss/partials/custom/_custominfo.module.scss'
+import { useInput } from "../../../hooks/useInput"
+import { InputChecker } from "../InputChecker"
 import { useEffect , useState } from "react"
 import { useDispatch } from "react-redux"
-import { useInput } from "../../../hooks/useInput"
-import cls from '../../../scss/partials/custom/_custominfo.module.scss'
-import { setProductInfo } from "../../../store/slices/app_slices/productSlice"
-import { InputChecker } from "../../elements/InputChecker"
 
 const CustomInfo = () => {
     const [discountPrice , setDiscountPrice] = useState(false)
