@@ -1,0 +1,51 @@
+@import './../../variables.module.scss';
+
+.checker{
+    width: 50%;
+
+    &_alt{
+        margin-top: 20px;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+
+        button{
+            background: yellow;
+            border-radius: 5px;
+            color: white;
+            outline: none;
+            width: 70px;
+            cursor: pointer;
+            border: none;
+            padding: 6px 0;
+        }
+    }
+
+    p{
+        color: yellow;
+        font-weight: 500;
+    }
+
+    &_input{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 15px;
+        font-weight: bold;
+        color: white;
+        outline: none;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background: $appBgColor;
+        height: 45px;
+    }
+}
+
+span{
+    cursor: pointer;
+    display: block;
+    color: grey;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+}

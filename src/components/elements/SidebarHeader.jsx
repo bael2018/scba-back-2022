@@ -3,7 +3,7 @@ import { MdDoubleArrow } from 'react-icons/md'
 import { useDispatch , useSelector } from 'react-redux';
 import { sideBarAppear } from '../../store/slices/app_slices/appSlice';
 
-const SidebaerHeader = () => {
+const SidebarHeader = () => {
     const { sideBarView } = useSelector(state => state.app)
     const dispatch = useDispatch()
 
@@ -16,4 +16,4 @@ const SidebaerHeader = () => {
     )
 }
 
-export { SidebaerHeader }
+export { SidebarHeader }

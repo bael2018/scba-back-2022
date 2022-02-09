@@ -3,10 +3,32 @@
 .settings{
     &__container{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         input{
             width: 90%;
+        }
+    }
+
+    &__description{
+        margin-top: 25px;
+        text-align: center;
+
+        h3{
+            color: white;
+        }
+
+        textarea{
+            width: 100%;
+            outline: none;
+            border: none;
+            color: white;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 5px;
+            background: $appBgColor;
+            height: 130px;
+            resize: none;
         }
     }
     
@@ -31,5 +53,11 @@
         text-align: center;
         padding: 0 20px;
         border-right: 1px solid $appThirdBgColor;
+
+        div{
+            h3{
+                color: white;
+            }
+        }
     }
 }

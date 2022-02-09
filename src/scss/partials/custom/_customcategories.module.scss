@@ -1,3 +1,4 @@
+@import '../../variables.module.scss';
 
 .settings{
     width: 25%;
@@ -8,6 +9,61 @@
         align-items: center;
         
         h3{
+            color: white;
+        }
+
+        &_edit{
+            text-align: center;
+
+            h3{
+                color: white;
+            } 
+
+            input{
+                box-sizing: border-box;
+                width: 100%;
+                padding: 0 15px;
+                font-weight: bold;
+                color: white;
+                outline: none;
+                text-align: center;
+                border: none;
+                border-radius: 10px;
+                background: $appBgColor;
+                height: 45px;
+            }
+            
+            button{
+                margin-top: 15px;
+                color: white;
+                background: $appColor;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                padding: 8px 16px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &_active{
+        color: $appColor !important;
+    }
+
+    > h3{
+        color: white;
+        justify-content: center;
+        font-weight: 600;
+        display: flex;
+        font-size: 21px;
+        margin: 10px 0;
+        padding: 20px 0;
+        border-top: 1px solid #3b3b3b;
+        border-bottom: 1px solid #3b3b3b;
+
+        span{
+            font-size: 21px;
+            margin: 0 10px;
             color: white;
         }
     }

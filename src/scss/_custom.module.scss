@@ -4,3 +4,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+.custom{
+    &__handler{
+        margin-top: 30px;
+        text-align: center;
+    }
+}

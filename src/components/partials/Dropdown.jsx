@@ -1,19 +1,23 @@
 import { setCategory, setSubCategory } from '../../store/slices/app_slices/appSlice'
 import cls from '../../scss/partials/_dropdown.module.scss'
 import { useEffect, useState } from "react"
-import { rootContant } from '../../constants'
-import { useDispatch, useSelector } from 'react-redux'
+import { rootConstants } from '../../constants'
+import { useDispatch } from 'react-redux'
 
 const Dropdown = ({ data , init , state }) => {
     const [view , setView] = useState(false)
     const dispatch = useDispatch()
 
+    const viewHandler = () => {
+        setView(!view)
+    }
+
     useEffect(() => {
         switch (init) {
-            case rootContant.category:
+            case rootConstants.category:
                 dispatch(setCategory({ category: 'Man' }))
                 break
-            case rootContant.subCategory:
+            case rootConstants.subCategory:
                 dispatch(setSubCategory({ subCategory: 'Jeans' }))
                 break
             default:
@@ -22,17 +26,13 @@ const Dropdown = ({ data , init , state }) => {
     } , [])
 
     const changeTextHandler = value => {    
-        if(init === rootContant.category){
-            setView(!view)
+        if(init === rootConstants.category){
+            viewHandler()
             dispatch(setCategory({ category: value }))
         }else{      
-            setView(!view)
+            viewHandler()
             dispatch(setSubCategory({ subCategory: value }))
         }
-    }
-
-    const viewHandler = () => {
-        setView(!view)
     }
 
     return (
@@ -59,7 +59,7 @@ const Dropdown = ({ data , init , state }) => {
                                 data.map(({ title , id }) => {
                                     return (
                                         <li 
-                                            className={title === state ? cls.activeItem : ''}
+                                            className={` ${title === state && cls.activeItem}`}
                                             key={id}
                                             onClick={() => changeTextHandler(title)}
                                         >
