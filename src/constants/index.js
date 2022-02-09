@@ -16,4 +16,9 @@ export const rootStatusNames = {
     LOADING: 'loading'
 }
 
+export const rootNamesSlice = {
+    APP: 'APP',
+    PRODUCT: 'PRODUCT'
+}
+
 export const DOT_JSON = '.json'

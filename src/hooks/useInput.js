@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 const useInput = initial => {
     const [value , setValue] = useState(initial)
     const { valueCleaner } = useSelector(state => state.product)
 
-    useMemo(() => {
+    useEffect(() => {
         setValue('')
     } , [valueCleaner])
 

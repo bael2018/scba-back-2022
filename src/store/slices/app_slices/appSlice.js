@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { rootNamesSlice } from "../../../constants";
 
 const initialState = {
     sideBarView: false,
@@ -8,7 +9,7 @@ const initialState = {
 }
 
 const appSlice = createSlice({
-    name: 'app',
+    name: rootNamesSlice.APP,
     initialState: initialState,
     reducers: {
         sideBarAppear: state => {

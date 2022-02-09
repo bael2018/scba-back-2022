@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { rootNamesSlice } from ".";
+import { rootNamesSlice } from "../../../constants";
 
 const initState = {
     title: '',
