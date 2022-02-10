@@ -2,23 +2,21 @@ import { setCategory, setSubCategory } from '../../store/slices/app_slices/appSl
 import cls from '../../scss/partials/_dropdown.module.scss'
 import { useEffect, useState } from "react"
 import { rootConstants } from '../../constants'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setDropDownViewFailure } from '../../store/slices/app_slices/productSlice'
 
-const Dropdown = ({ data , init , state }) => {
+const Dropdown = ({ data , init , state ,}) => {
+    const { category } = useSelector(state => state.app)
     const [view , setView] = useState(false)
     const dispatch = useDispatch()
-
-    const viewHandler = () => {
-        setView(!view)
-    }
 
     useEffect(() => {
         switch (init) {
             case rootConstants.category:
-                dispatch(setCategory({ category: 'Man' }))
+                dispatch(setCategory({ category: category }))
                 break
             case rootConstants.subCategory:
-                dispatch(setSubCategory({ subCategory: 'Jeans' }))
+                dispatch(setSubCategory({ subCategory: data[0]?.subCategory }))
                 break
             default:
                 break;
@@ -27,10 +25,11 @@ const Dropdown = ({ data , init , state }) => {
 
     const changeTextHandler = value => {    
         if(init === rootConstants.category){
-            viewHandler()
+            setView(!view)
             dispatch(setCategory({ category: value }))
+            dispatch(setDropDownViewFailure())
         }else{      
-            viewHandler()
+            setView(!view)
             dispatch(setSubCategory({ subCategory: value }))
         }
     }
@@ -39,13 +38,13 @@ const Dropdown = ({ data , init , state }) => {
         <div className={cls.dropdown}>
             <div 
                 className={cls.dropdown__header}
-                onClick={viewHandler}
+                onClick={() => setView(!view)}
             >
             {state}
             </div>
             <div 
                 className={
-                    data.length > 5 ? (
+                    data?.length > 3 ? (
                         view ? `${cls.dropdown__body} ${cls.dropdown__body_scroll}` : cls.dropdown__body
                     ) : (
                         view ? `${cls.dropdown__body} ${cls.dropdown__body_active}` : cls.dropdown__body
@@ -53,17 +52,17 @@ const Dropdown = ({ data , init , state }) => {
                 }
             >
                 {
-                    data.length ? (
+                    data?.length ? (
                         <ul>
                             {
-                                data.map(({ title , id }) => {
+                                data.map(({ subCategory , id }) => {
                                     return (
                                         <li 
-                                            className={` ${title === state && cls.activeItem}`}
+                                            className={` ${subCategory === state && cls.activeItem}`}
                                             key={id}
-                                            onClick={() => changeTextHandler(title)}
+                                            onClick={() => changeTextHandler(subCategory)}
                                         >
-                                            {title}
+                                            {subCategory}
                                         </li>
                                     )
                                 })

@@ -4,7 +4,7 @@ import { rootNamesSlice } from "../../../constants";
 const initialState = {
     sideBarView: false,
     sidebarCategory: 'first',
-    category: '',
+    category: 'Man',
     subCategory: '',
 }
 

@@ -9,6 +9,6 @@ export const getDate = () => {
         day: time.getDate(),
         year: year,
         month: month > 12 ? month - 1 : month + 1,
-        fullDate: `0${day}-0${month > 12 ? month - 1 : month + 1}-${year}`
+        fullDate: `${day > 9 ? day : `0${day}`}-0${month > 12 ? month - 1 : month + 1}-${year}`
     }
 }

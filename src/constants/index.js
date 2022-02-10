@@ -4,10 +4,8 @@ export const rootConstants = {
 }
 
 export const rootApiNamesSlice = {
-    GET_PRODUCT: 'GET_PRODUCT',
-    POST_PRODUCT: 'POST_PRODUCT',
-    POST_CATEGORY: 'POST_CATEGORY',
-    PRODUCT_CODE: 'PRODUCT_CODE'
+    PRODUCT_API: 'PRODUCT_API',
+    CATEGORY_API: 'CATEGORY_API'
 }
 
 export const rootStatusNames = {
@@ -19,6 +17,13 @@ export const rootStatusNames = {
 export const rootNamesSlice = {
     APP: 'APP',
     PRODUCT: 'PRODUCT'
+}
+
+export const method = {
+    get: 'get',
+    post: 'post',
+    delete: 'delete',
+    patch: 'patch',
 }
 
 export const DOT_JSON = '.json'

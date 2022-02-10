@@ -1,18 +1,21 @@
-
 .category{
     color: white;
     box-sizing: border-box;
     overflow-y: scroll;
     transition: .5s;
-    height: 0px;
+    max-height: 0px;
 
     &_active{
-        height: 300px;
+        max-height: 250px;
         margin-bottom: 15px;
     }
 
     &::-webkit-scrollbar{
         width: 4px;
         background: none;
+    }
+
+    p{
+        font-weight: 600;
     }
 }

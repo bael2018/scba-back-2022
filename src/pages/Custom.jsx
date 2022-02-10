@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { CustomCategories } from "../components/partials/custom/CustomCategories";
 import { CustomContent } from "../components/partials/custom/CustomContent";
 import { CustomInfo } from "../components/partials/custom/CustomInfo";
 import cls from '../scss/_custom.module.scss'
-import { postProductApi } from "../store/slices/api_slices/productApiSlice";
 import { getDate } from "../utilities/getDate";
 import { setValueCleaner } from "../store/slices/app_slices/productSlice";
 import { setCategory } from "../store/slices/app_slices/appSlice";
+import { productCode } from "../utilities/productCode";
+import { postProductApi } from "../store/slices/api_slices/productApiSlice";
 
 const Custom = () => {
     const {
@@ -31,7 +31,7 @@ const Custom = () => {
                 images,
                 category,
                 subCategory,
-                productCode: '',
+                productCode: productCode(),
                 createdAt: getDate()
             }
 

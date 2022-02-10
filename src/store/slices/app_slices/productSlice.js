@@ -11,7 +11,9 @@ const initState = {
     mainImage: '',
     secondImage: '',
     thirdImage: '',
-    valueCleaner: false
+    valueCleaner: false,
+    dropDownView: false,
+    dropDownCategoryLink: ''
 }
 
 const productSlice = createSlice({
@@ -33,11 +35,23 @@ const productSlice = createSlice({
         },
         setValueCleaner: state => {
             state.valueCleaner = !state.valueCleaner
+        },
+        setDropDownViewSuccess: state => {
+            state.dropDownView = true
+        },
+        setDropDownViewFailure: state => {
+            state.dropDownView = false
+        },
+        setDropDownLink: (state , action) => {
+            state.dropDownCategoryLink = action.payload
         }
     }
 })
 
 export const {
+    setDropDownLink,
+    setDropDownViewSuccess,
+    setDropDownViewFailure,
     setValueCleaner,
     setProductInfo,
     setProductImages

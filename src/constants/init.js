@@ -1,14 +1,14 @@
 export const initCategory = [
     {
-        title: 'Man',
+        subCategory: 'Man',
         id: 1
     },
     {
-        title: 'Woman',
+        subCategory: 'Woman',
         id: 2
     },
     {
-        title: 'Kid',
+        subCategory: 'Kid',
         id: 3
     }
 ]

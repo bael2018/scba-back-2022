@@ -1,42 +1,31 @@
-import { catchResponseError, setRejected } from '../../../utilities/apiErrorHandler'
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { DOT_JSON, rootApiNamesSlice, rootStatusNames } from '../../../constants';
-import axios from "axios";
+import { method, rootApiNamesSlice, rootStatusNames } from '../../../constants';
+import { setRejected } from '../../../utilities/apiErrorHandler'
+import { apiThunk } from '../../../utilities/apiThunk';
+import { createSlice } from "@reduxjs/toolkit";
 
-export const getProductApi = createAsyncThunk(
-    `${rootApiNamesSlice.GET_PRODUCT}/getProductApi`,
-    async (_ , { rejectWithValue }) => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_API}users${DOT_JSON}`) 
-            catchResponseError(response)
-            return await response.data
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-    }
+export const getProductApi = apiThunk(
+    method.get, 
+    'products', 
+    rootApiNamesSlice.PRODUCT_API, 
+    'getProductApi'
 )
 
-export const postProductApi = createAsyncThunk(
-    `${rootApiNamesSlice.POST_PRODUCT}/postProductApi`,
-    async (body , { rejectWithValue }) => {
-        try {
-            const response = axios.post(`${process.env.REACT_APP_BASE_API}products${DOT_JSON}` , body)
-            catchResponseError(response)
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-    }
+export const postProductApi = apiThunk(
+    method.post, 
+    'products', 
+    rootApiNamesSlice.PRODUCT_API, 
+    'postProductApi'
 )
 
-const initState = {
+const initialState = {
     products: [],
     status: null,
     error: null
 }
 
-const getProductSlice = createSlice({
-    name: rootApiNamesSlice.GET_PRODUCT,
-    initialState: initState,
+const productApiSlice = createSlice({
+    name: rootApiNamesSlice.PRODUCT_API,
+    initialState,
     extraReducers: {
         [getProductApi.pending]: state => {
             state.status = rootStatusNames.LOADING;
@@ -50,4 +39,4 @@ const getProductSlice = createSlice({
     }
 })
 
-export default getProductSlice.reducer
+export default productApiSlice.reducer

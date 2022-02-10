@@ -21,21 +21,21 @@ const SidebarContent = () => {
                         <AiOutlineSetting/>
                         CUSTOM
                     </CustomLink>
-                    <CustomLink onClick={() => setCategory('woman')} to={'/woman'}>
+                    <CustomLink onClick={() => setCategory('Woman')} to={'/Woman'}>
                         <AiOutlineWoman/>
                         WOMAN
                     </CustomLink>
-                    <SidebarCategory index={'woman'}/>
-                    <CustomLink onClick={() => setCategory('man')} to={'/man'}>
+                    <SidebarCategory index={'Woman'}/>
+                    <CustomLink onClick={() => setCategory('Man')} to={'/Man'}>
                         <AiOutlineMan/>
                         MAN
                     </CustomLink>
-                    <SidebarCategory index={'man'}/>
-                    <CustomLink onClick={() => setCategory('kid')} to={'/kid'}>
+                    <SidebarCategory index={'Man'}/>
+                    <CustomLink onClick={() => setCategory('Kid')} to={'/Kid'}>
                         <MdToys/>
                         KID
                     </CustomLink>
-                    <SidebarCategory index={'kid'}/>
+                    <SidebarCategory index={'Kid'}/>
                 </ul>
             </div>
         </div>
