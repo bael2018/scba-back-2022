@@ -9,5 +9,16 @@
     &__handler{
         margin-top: 30px;
         text-align: center;
+
+        button{
+            cursor: pointer;
+            outline: none;
+            font-weight: 500;
+            border: none;
+            color: $appBgColor;
+            padding: 8px 17px;
+            background: $appColor;
+            border-radius: 5px;
+        }
     }
 }

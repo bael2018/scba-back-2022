@@ -1,68 +1,70 @@
-import { setProductInfo } from "../../../store/slices/app_slices/productSlice"
-import cls from '../../../scss/partials/custom/_custominfo.module.scss'
-import { useInput } from "../../../hooks/useInput"
-import { InputChecker } from "../InputChecker"
-import { useEffect , useState } from "react"
-import { useDispatch } from "react-redux"
+import { setProductInfo } from "../../../store/slices/app_slices/productSlice";
+import cls from "../../../scss/partials/custom/_custominfo.module.scss";
+import { useInput } from "../../../hooks/useInput";
+import { InputChecker } from "../InputChecker";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const CustomInfo = () => {
-    const [discountPrice , setDiscountPrice] = useState(false)
-    const [isColor , setIsColor] = useState(false)
-    const [isSize , setIsSize] = useState(false)
-    const [checker , setChecker] = useState(false)
-    const dispatch = useDispatch()
+    const [discountPrice, setDiscountPrice] = useState(false);
+    const [isColor, setIsColor] = useState(false);
+    const [isSize, setIsSize] = useState(false);
+    const [checker, setChecker] = useState(false);
+    const dispatch = useDispatch();
 
-    const descriptionFiller = useInput('')
-    const discountfiller = useInput('')
-    const sizeFiller = useInput('')
-    const colorFiller = useInput('')
-    const titleFiller = useInput('')
-    const priceFiller = useInput('')
+    const descriptionFiller = useInput("");
+    const discountfiller = useInput("");
+    const sizeFiller = useInput("");
+    const colorFiller = useInput("");
+    const titleFiller = useInput("");
+    const priceFiller = useInput("");
 
-    const descriptionR = descriptionFiller.getter().value
-    const titleR = titleFiller.getter().value
-    const priceR = priceFiller.getter().value
+    const descriptionR = descriptionFiller.getValue();
+    const titleR = titleFiller.getValue();
+    const priceR = priceFiller.getValue();
 
     useEffect(() => {
-        if(titleR && descriptionR && priceR){
-            setChecker(true)
+        if (titleR !== " " && descriptionR !== " " && priceR !== " ") {
+            setChecker(true);
         }
 
-        if(checker){
-            dispatch(setProductInfo({
-                title: titleR,
-                description: descriptionR,
-                price: priceR,
-                discountPrice: discountfiller.getter().value,
-                size: sizeFiller.getter().value,
-                color: colorFiller.getter().value
-            }))
+        if (checker) {
+            dispatch(
+                setProductInfo({
+                    title: titleR,
+                    description: descriptionR,
+                    price: priceR,
+                    discountPrice: discountfiller.getValue(),
+                    size: sizeFiller.getValue(),
+                    color: colorFiller.getValue(),
+                })
+            );
         }
-    } , [titleR , descriptionR , priceR])
+    }, [titleR, descriptionR, priceR]);
 
     return (
         <div className={cls.settings__middle}>
             <div>
                 <h3>Title</h3>
-                <input 
+                <input
                     className={cls.settings__input}
-                    type="text" 
-                    {...titleFiller.getter()}
+                    type="text"
+                    {...titleFiller.bind()}
                 />
             </div>
             <div className={cls.settings__container}>
                 <div>
                     <h3>Price (RUB)</h3>
-                    <input 
+                    <input
                         className={cls.settings__input}
-                        type="text" 
-                        {...priceFiller.getter()}
+                        type="text"
+                        {...priceFiller.bind()}
                     />
                 </div>
                 <InputChecker
                     styles={true}
-                    title={'DiscountPrice'}
-                    hasTitle={'Has discount'}
+                    title={"DiscountPrice"}
+                    hasTitle={"Has discount"}
                     state={discountPrice}
                     setState={setDiscountPrice}
                     info={discountfiller}
@@ -71,16 +73,16 @@ const CustomInfo = () => {
             <div className={cls.settings__container}>
                 <InputChecker
                     styles={true}
-                    title={'Size'}
-                    hasTitle={'Has size'}
+                    title={"Size"}
+                    hasTitle={"Has size"}
                     state={isSize}
                     setState={setIsSize}
                     info={sizeFiller}
                 />
                 <InputChecker
                     styles={true}
-                    title={'Color'}
-                    hasTitle={'Has color'}
+                    title={"Color"}
+                    hasTitle={"Has color"}
                     state={isColor}
                     setState={setIsColor}
                     info={colorFiller}
@@ -88,10 +90,10 @@ const CustomInfo = () => {
             </div>
             <div className={cls.settings__description}>
                 <h3>Description</h3>
-                <textarea {...descriptionFiller.getter()}></textarea>
+                <textarea {...descriptionFiller.bind()}></textarea>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export { CustomInfo }
+export { CustomInfo };

@@ -17,5 +17,14 @@
 
     p{
         font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 4px;
+        transition: .5s;
+    }
+
+    &__link{
+        background: #383838;
     }
 }

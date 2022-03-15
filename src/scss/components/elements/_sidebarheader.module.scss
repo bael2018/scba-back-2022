@@ -1,18 +1,17 @@
-
-.header{
+.header {
     height: 0px;
     overflow: hidden;
     transition: 1s;
     display: flex;
 
-    span{
+    span {
         color: white;
         cursor: pointer;
         font-size: 27px;
-        transition: .3s;
+        transition: 0.3s;
     }
 
-    &_active{
+    &_active {
         height: 30px;
     }
 }

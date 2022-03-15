@@ -1,41 +1,41 @@
-import { method, rootApiNamesSlice, rootStatusNames } from "../../../constants"
-import { apiThunk } from "../../../utilities/apiThunk"
-import { createSlice } from "@reduxjs/toolkit"
-import { setRejected } from "../../../utilities/apiErrorHandler"
+import { method, rootApiNamesSlice, rootStatusNames } from "../../../constants";
+import { apiThunk } from "../../../utilities/apiThunk";
+import { createSlice } from "@reduxjs/toolkit";
+import { setRejected } from "../../../utilities/apiErrorHandler";
 
 export const getCategoryApi = apiThunk(
     method.get,
-    'categories',
+    "categories",
     rootApiNamesSlice.CATEGORY_API,
-    'getCategoryApi'
-)
+    "getCategoryApi"
+);
 
 export const postCategoryApi = apiThunk(
     method.post,
-    'categories',
+    "categories",
     rootApiNamesSlice.CATEGORY_API,
-    'postCategoryApi'
-)
+    "postCategoryApi"
+);
 
 const initialState = {
     categories: [],
     status: null,
-    error: null
-}
+    error: null,
+};
 
 const categoryApiSlice = createSlice({
     name: rootApiNamesSlice.CATEGORY_API,
     initialState,
     extraReducers: {
-        [getCategoryApi.pending]: state => {
+        [getCategoryApi.pending]: (state) => {
             state.status = rootStatusNames.LOADING;
         },
-        [getCategoryApi.fulfilled]: (state , action) => {
+        [getCategoryApi.fulfilled]: (state, action) => {
             state.status = rootStatusNames.RESOLVED;
-            state.categories = action.payload
+            state.categories = action.payload;
         },
-        [getCategoryApi.rejected]: setRejected
-    }
-})
+        [getCategoryApi.rejected]: setRejected,
+    },
+});
 
-export default categoryApiSlice.reducer
+export default categoryApiSlice.reducer;

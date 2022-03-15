@@ -3,34 +3,49 @@ import { rootNamesSlice } from "../../../constants";
 
 const initialState = {
     sideBarView: false,
-    sidebarCategory: 'first',
-    category: 'Man',
-    subCategory: '',
-}
+    sidebarCategory: "first",
+    category: "Man",
+    subCategory: "",
+    status: "Default",
+    itemBody: "",
+    isEdit: false,
+};
 
 const appSlice = createSlice({
     name: rootNamesSlice.APP,
     initialState: initialState,
     reducers: {
-        sideBarAppear: state => {
-            state.sideBarView = !state.sideBarView
+        sideBarAppear: (state) => {
+            state.sideBarView = !state.sideBarView;
         },
-        sideBarDropCategory: (state , action) => {
-            state.sidebarCategory = action.payload
+        sideBarDropCategory: (state, action) => {
+            state.sidebarCategory = action.payload;
         },
-        setCategory: (state , action) => {
-            state.category = action.payload.category
+        setCategory: (state, action) => {
+            state.category = action.payload.category;
         },
-        setSubCategory: (state , action) => {
-            state.subCategory = action.payload.subCategory
-        }
-    }
-})
+        setSubCategory: (state, action) => {
+            state.subCategory = action.payload.subCategory;
+        },
+        setStatus: (state, action) => {
+            state.status = action.payload.status;
+        },
+        setItemBody: (state, action) => {
+            state.itemBody = action.payload.body;
+        },
+        setIsEdit: (state) => {
+            state.isEdit = !state.isEdit;
+        },
+    },
+});
 
-export const { 
+export const {
+    setIsEdit,
+    setItemBody,
+    setStatus,
     sideBarAppear,
     sideBarDropCategory,
     setCategory,
-    setSubCategory
-} = appSlice.actions
-export default appSlice.reducer
+    setSubCategory,
+} = appSlice.actions;
+export default appSlice.reducer;
